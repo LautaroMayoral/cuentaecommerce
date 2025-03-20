@@ -1,36 +1,16 @@
-/* Variables */
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$font-stack: 'Roboto', sans-serif;
-
 /* Base styles */
 body {
-    font-family: $font-stack;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 /* Header styles */
 header {
-    background-color: $primary-color;
+    background-color: #007bff;
     color: white;
     text-align: center;
     padding: 1rem;
-    nav ul {
-        list-style: none;
-        padding: 0;
-        li {
-            display: inline-block;
-            margin-right: 1rem;
-            a {
-                color: white;
-                text-decoration: none;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
 }
 
 /* Navbar styles */
@@ -38,14 +18,18 @@ header {
     margin-bottom: 1rem;
 }
 
+/* Section styles */
+section {
+    margin: 2rem 0;
+}
+
 /* Footer styles */
 footer {
-    background-color: $secondary-color;
+    background-color: #6c757d;
     color: white;
     text-align: center;
     padding: 1rem;
 }
-
 .carrito li {
     margin: 10px 0;
 }
