@@ -1,48 +1,49 @@
-/* Estilos básicos para la página */
+/* Variables */
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$font-stack: 'Roboto', sans-serif;
+
+/* Base styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: $font-stack;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+/* Header styles */
 header {
-    background-color: #333;
+    background-color: $primary-color;
     color: white;
-    padding: 10px 20px;
     text-align: center;
+    padding: 1rem;
+    nav ul {
+        list-style: none;
+        padding: 0;
+        li {
+            display: inline-block;
+            margin-right: 1rem;
+            a {
+                color: white;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 }
 
-header nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
+/* Navbar styles */
+.navbar {
+    margin-bottom: 1rem;
 }
 
-.productos {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-.producto img {
-    width: 150px;
-    height: 150px;
-}
-
+/* Footer styles */
 footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
+    background-color: $secondary-color;
     color: white;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-.carrito ul {
-    list-style-type: none;
-    padding: 0;
+    text-align: center;
+    padding: 1rem;
 }
 
 .carrito li {
