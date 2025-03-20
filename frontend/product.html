@@ -19,12 +19,27 @@
         <h2>Producto 1</h2>
         <img src="https://via.placeholder.com/300" alt="Producto 1">
         <p>Descripción completa del producto 1.</p>
-        <button>Añadir al carrito</button>
+        <label for="quantity">Cantidad:</label>
+        <input type="number" id="quantity" value="1" min="1">
+        <button onclick="addProductToCart()">Añadir al carrito</button>
     </section>
 
     <footer>
         <p>&copy; 2025 Mi Ecommerce</p>
     </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        // Función para agregar el producto al carrito con la cantidad seleccionada
+        function addProductToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const product = {
+                name: 'Producto 1',
+                price: 10.00 * quantity // Suponiendo que el precio es $10 por unidad
+            };
+            addToCart(product);
+        }
+    </script>
 </body>
 </html>
 
