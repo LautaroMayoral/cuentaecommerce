@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Actualiza la cantidad de productos en el carrito
-    let cantidadProductos = 0; // Esta variable debe actualizarse según la lógica de tu carrito
-    let carritoProductos = []; // Array para almacenar los productos en el carrito
+    // Inicializa la cantidad de productos en el carrito y el array de productos
+    let cantidadProductos = 0; 
+    let carritoProductos = []; 
 
     // Función para actualizar el contenido del carrito
     function actualizarCarrito() {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Actualizar la cantidad de productos en el carrito y el contenido del carrito
     actualizarCarrito();
 
-    // Ejemplo: Añadir un producto al carrito (esto debe ser parte de la lógica de tu aplicación)
+    // Función para agregar un producto al carrito (esto debe ser parte de la lógica de tu aplicación)
     function agregarProductoAlCarrito(producto) {
         carritoProductos.push(producto);
         cantidadProductos = carritoProductos.length;
