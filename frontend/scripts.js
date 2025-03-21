@@ -35,8 +35,3 @@ document.addEventListener("DOMContentLoaded", function() {
     showSection('inicio');
     actualizarCantidadCarrito();
 });
-
-    // Inicialmente, muestra la sección de inicio
-    showSection('inicio');
-    actualizarCantidadCarrito();
-});
