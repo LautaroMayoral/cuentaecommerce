@@ -17,7 +17,7 @@ if (typeof browserObject !== 'undefined') {
     } else {
         console.log('This is not a mobile browser.');
     }
-    browserObject.openNewTab('https://www.mayoralimport.com');
+    browserObject.openNewTab('https://www.example.com');
 } else {
     console.error('browserObject is undefined');
 }
