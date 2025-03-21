@@ -11,54 +11,25 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Inicializa la cantidad de productos en el carrito y el array de productos
-    let cantidadProductos = 0; 
-    let carritoProductos = []; 
-
-    // Función para actualizar el contenido del carrito
-    function actualizarCarrito() {
-        const carritoElement = document.getElementById('carrito-productos');
+    // Actualizar la cantidad de productos en el carrito
+    function actualizarCantidadCarrito() {
         const cantidadElement = document.getElementById('cantidad-productos-nav');
-        cantidadElement.textContent = cantidadProductos;
-
-        carritoElement.innerHTML = ''; // Limpiar contenido previo
-
-        if (cantidadProductos > 0) {
-            carritoProductos.forEach(producto => {
-                const productoElement = document.createElement('div');
-                productoElement.classList.add('card', 'my-2');
-                productoElement.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">${producto.descripcion}</p>
-                    </div>
-                `;
-                carritoElement.appendChild(productoElement);
-            });
-        } else {
-            carritoElement.innerHTML = '<p>No tienes productos en tu carrito.</p>';
+        if (cantidadElement) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            cantidadElement.textContent = carrito.length;
         }
+    }
+
+    // Función para agregar un producto al carrito
+    window.agregarProductoAlCarrito = function(nombre, descripcion) {
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carrito.push({ nombre, descripcion });
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarCantidadCarrito();
+        alert('Producto agregado al carrito');
     }
 
     // Inicialmente, muestra la sección de inicio
     showSection('inicio');
-
-    // Añade la función al objeto global para que pueda ser llamada desde el HTML
-    window.showSection = showSection;
-
-    // Actualizar la cantidad de productos en el carrito y el contenido del carrito
-    actualizarCarrito();
-
-    // Función para agregar un producto al carrito (esto debe ser parte de la lógica de tu aplicación)
-    function agregarProductoAlCarrito(producto) {
-        carritoProductos.push(producto);
-        cantidadProductos = carritoProductos.length;
-        actualizarCarrito();
-    }
-
-    // Ejemplo de uso de la función agregarProductoAlCarrito
-    agregarProductoAlCarrito({
-        nombre: 'Producto 1: Camiseta Deportiva',
-        descripcion: 'Descripción del producto 1'
-    });
+    actualizarCantidadCarrito();
 });
