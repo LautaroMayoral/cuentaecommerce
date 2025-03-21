@@ -1,8 +1,8 @@
 // Definición de browserObject
 var browserObject = {
-    name: 'Chrome',
-    version: '89.0',
-    isMobile: false,
+    name: navigator.userAgent,
+    version: navigator.appVersion,
+    isMobile: /Mobi|Android/i.test(navigator.userAgent),
     openNewTab: function(url) {
         window.open(url, '_blank');
     }
@@ -11,7 +11,13 @@ var browserObject = {
 // Uso de browserObject
 if (typeof browserObject !== 'undefined') {
     console.log('Browser Name:', browserObject.name);
-    browserObject.openNewTab('https://www.mayoralimp.com');
+    console.log('Browser Version:', browserObject.version);
+    if (browserObject.isMobile) {
+        console.log('This is a mobile browser.');
+    } else {
+        console.log('This is not a mobile browser.');
+    }
+    browserObject.openNewTab('https://www.mayoralimport.com');
 } else {
     console.error('browserObject is undefined');
 }
