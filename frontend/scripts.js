@@ -1,26 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Función para mostrar la sección seleccionada y ocultar las demás
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            if (section.id === sectionId) {
-                section.style.display = 'block';
-            } else {
-                section.style.display = 'none';
-            }
-        });
-    }
-
-    // Agregar event listeners a los enlaces de navegación
+document.addEventListener('DOMContentLoaded', function() {
+    // Manejar la navegación entre secciones
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            const sectionId = this.getAttribute('href').substring(1);
-            showSection(sectionId);
+            const targetId = this.getAttribute('href').substring(1);
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = section.id === targetId ? 'block' : 'none';
+            });
         });
     });
 
-    // Inicialmente, muestra la sección de inicio
-    showSection('inicio');
+    // Mostrar la sección de inicio por defecto
+    document.getElementById('inicio').style.display = 'block';
 });
