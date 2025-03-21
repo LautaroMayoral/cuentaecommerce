@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (cantidadElement) {
             const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             cantidadElement.textContent = carrito.length;
+        } else {
+            console.error('Element with id "cantidad-productos-nav" not found');
         }
     }
 
@@ -28,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
         actualizarCantidadCarrito();
         alert('Producto agregado al carrito');
     }
+
+    // Inicialmente, muestra la sección de inicio
+    showSection('inicio');
+    actualizarCantidadCarrito();
+});
 
     // Inicialmente, muestra la sección de inicio
     showSection('inicio');
