@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para abrir una nueva pestaña
     //function openNewTab(url) {
       //  window.open(url, '_blank');
-    }
+    
 
     // Ejemplo de uso (comentado para evitar que se ejecute automáticamente)
     // openNewTab('https://www.example.com');
