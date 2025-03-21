@@ -30,7 +30,3 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('Error loading web content:', error);
     }
 });
-
-    // Inicialmente, muestra la sección de inicio
-    showSection('inicio');
-});
