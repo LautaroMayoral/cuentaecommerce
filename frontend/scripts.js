@@ -11,27 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Actualizar la cantidad de productos en el carrito
-    function actualizarCantidadCarrito() {
-        const cantidadElement = document.getElementById('cantidad-productos-nav');
-        if (cantidadElement) {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            cantidadElement.textContent = carrito.length;
-        } else {
-            console.error('Element with id "cantidad-productos-nav" not found');
-        }
-    }
-
-    // Función para agregar un producto al carrito
-    window.agregarProductoAlCarrito = function(nombre, descripcion) {
-        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito.push({ nombre, descripcion });
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        actualizarCantidadCarrito();
-        alert('Producto agregado al carrito');
-    }
+    // Agregar event listeners a los enlaces de navegación
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const sectionId = this.getAttribute('href').substring(1);
+            showSection(sectionId);
+        });
+    });
 
     // Inicialmente, muestra la sección de inicio
     showSection('inicio');
-    actualizarCantidadCarrito();
 });
