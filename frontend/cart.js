@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 productoElement.classList.add('card', 'my-2');
                 productoElement.innerHTML = `
                     <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">${producto.descripcion}</p>
+                        <h5 class="card-title">${producto.name}</h5>
+                        <p class="card-text">${producto.description}</p>
+                        <p class="card-text">Talle: ${producto.size}</p>
                     </div>
                 `;
                 carritoElement.appendChild(productoElement);
