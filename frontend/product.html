@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto 1 - Mi Ecommerce</title>
+    <title>Producto - Mi Ecommerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,11 +16,15 @@
     </header>
 
     <section class="producto-detalle">
-        <h2>Producto 1</h2>
-        <img src="https://via.placeholder.com/300" alt="Producto 1">
-        <p>Descripción completa del producto 1.</p>
-        <label for="quantity">Cantidad:</label>
-        <input type="number" id="quantity" value="1" min="1">
+        <h2 id="product-name">Nombre del Producto</h2>
+        <img id="product-image" src="https://via.placeholder.com/300" alt="Producto">
+        <p id="product-description">Descripción completa del producto.</p>
+        <label for="sizes">Talles:</label>
+        <select id="sizes">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+        </select>
         <button onclick="addProductToCart()">Añadir al carrito</button>
     </section>
 
@@ -30,12 +34,25 @@
 
     <script src="cart.js"></script>
     <script>
-        // Función para agregar el producto al carrito con la cantidad seleccionada
+        // Obtener los datos del producto de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('name');
+        const productImage = urlParams.get('image');
+        const productDescription = urlParams.get('description');
+
+        // Actualizar la vista del producto con los datos obtenidos
+        document.getElementById('product-name').textContent = productName;
+        document.getElementById('product-image').src = productImage;
+        document.getElementById('product-description').textContent = productDescription;
+
+        // Función para agregar el producto al carrito
         function addProductToCart() {
-            const quantity = document.getElementById('quantity').value;
+            const size = document.getElementById('sizes').value;
             const product = {
-                name: 'Producto 1',
-                price: 10.00 * quantity // Suponiendo que el precio es $10 por unidad
+                name: productName,
+                image: productImage,
+                description: productDescription,
+                size: size
             };
             addToCart(product);
         }
